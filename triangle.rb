@@ -14,6 +14,12 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  if a <= 0 || b <= 0 || c <= 0
+    raise TriangleError, "no sides may be less than or equal to 0"
+  end
+  if (a + b <= c) or (a + c <= b) or (b + c <= b)
+    raise TriangleError, "two sides must add up to greater than the third side"
+  end
   if a == b and b ==c
     return :equilateral
   end
